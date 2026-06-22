@@ -1,9 +1,5 @@
-import React from 'react'
-
 function DoctorList() {
-  return (
-    <div>DoctorList</div>
-  )
+  return <h1>Doctor List</h1>;
 }
 
-export default DoctorList
+export default DoctorList;

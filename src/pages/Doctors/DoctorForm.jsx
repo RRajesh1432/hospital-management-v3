@@ -1,9 +1,5 @@
-import React from 'react'
-
 function DoctorForm() {
-  return (
-    <div>DoctorForm</div>
-  )
+  return <h1>Doctor Form</h1>;
 }
 
-export default DoctorForm
+export default DoctorForm;

@@ -1,9 +1,5 @@
-import React from 'react'
-
 function DoctorDetails() {
-  return (
-    <div>DoctorDetails</div>
-  )
+  return <h1>Doctor Details</h1>;
 }
 
-export default DoctorDetails
+export default DoctorDetails;
