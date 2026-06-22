@@ -8,13 +8,19 @@ function Dashboard() {
     <div className="container mt-5">
       <h1>Hospital Dashboard</h1>
 
-      <Link to="/doctors" className="btn btn-success me-3">
-        Doctors Module
-      </Link>
+      <div className="mt-4">
+        <Link to="/doctors" className="btn btn-primary me-3">
+          Manage Doctors
+        </Link>
+        
+        <Link to="/patients" className="btn btn-success me-3">
+          Manage Patients
+        </Link>
 
-      <button className="btn btn-danger" onClick={logout}>
-        Logout
-      </button>
+        <button className="btn btn-danger" onClick={logout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 }

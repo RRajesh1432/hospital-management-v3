@@ -9,6 +9,10 @@ import DoctorDetails from "../pages/Doctors/DoctorDetails";
 
 import ProtectedRoute from "../components/ProtectedRoute";
 
+import PatientList from "../pages/Patients/PatientList";
+import PatientForm from "../pages/Patients/PatientForm";
+import PatientDetails from "../pages/Patients/PatientDetails";
+
 function AppRoutes() {
   return (
     <Routes>
@@ -55,6 +59,42 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <DoctorDetails />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/patients"
+        element={
+          <ProtectedRoute>
+            <PatientList />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/patients/add"
+        element={
+          <ProtectedRoute>
+            <PatientForm />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/patients/edit/:id"
+        element={
+          <ProtectedRoute>
+            <PatientForm />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/patients/view/:id"
+        element={
+          <ProtectedRoute>
+            <PatientDetails />
           </ProtectedRoute>
         }
       />
