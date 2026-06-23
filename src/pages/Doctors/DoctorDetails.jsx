@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
+
+import Layout from "../../components/Layout/Layout";
+
 import { getDoctorById } from "../../services/doctorService";
 
 function DoctorDetails() {
@@ -13,17 +17,48 @@ function DoctorDetails() {
 
   const loadDoctor = async () => {
     const response = await getDoctorById(id);
+
     setDoctor(response.data);
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Doctor Details</h2>
+    <Layout>
+      <div className="card shadow">
+        <div className="card-body">
+          <h2>Doctor Details</h2>
 
-      <h4>Name: {doctor.name}</h4>
-      <h4>Specialization: {doctor.specialization}</h4>
-      <h4>Experience: {doctor.experience}</h4>
-    </div>
+          <hr />
+
+          <p>
+            <strong>Name:</strong> {doctor.name}
+          </p>
+
+          <p>
+            <strong>Email:</strong> {doctor.email}
+          </p>
+
+          <p>
+            <strong>Phone:</strong> {doctor.phone}
+          </p>
+
+          <p>
+            <strong>Qualification:</strong> {doctor.qualification}
+          </p>
+
+          <p>
+            <strong>Specialization:</strong> {doctor.specialization}
+          </p>
+
+          <p>
+            <strong>Experience:</strong> {doctor.experience} Years
+          </p>
+
+          <p>
+            <strong>Status:</strong> {doctor.status}
+          </p>
+        </div>
+      </div>
+    </Layout>
   );
 }
 

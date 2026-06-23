@@ -2,22 +2,13 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5000/doctors";
 
-export const getAllDoctors = () => {
-  return axios.get(API_URL);
-};
+export const getAllDoctors = () => axios.get(API_URL);
 
-export const getDoctorById = (id) => {
-  return axios.get(`${API_URL}/${id}`);
-};
+export const getDoctorById = (id) => axios.get(`${API_URL}/${id}`);
 
-export const createDoctor = (doctor) => {
-  return axios.post(API_URL, doctor);
-};
+export const createDoctor = (doctor) => axios.post(API_URL, doctor);
 
-export const updateDoctor = (id, doctor) => {
-  return axios.put(`${API_URL}/${id}`, doctor);
-};
+export const updateDoctor = (id, doctor) =>
+  axios.put(`${API_URL}/${id}`, doctor);
 
-export const deleteDoctor = (id) => {
-  return axios.delete(`${API_URL}/${id}`);
-};
+export const deleteDoctor = (id) => axios.delete(`${API_URL}/${id}`);

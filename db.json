@@ -23,11 +23,38 @@
   ],
   "patients": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ravi Kumar",
       "age": 25,
       "gender": "Male",
       "disease": "Fever"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1",
+      "patientName": "Ravi Kumar",
+      "doctorName": "Dr Rajesh",
+      "date": "2026-06-22",
+      "time": "10:00",
+      "status": "Scheduled"
+    },
+    {
+      "patientName": "Ravi Kumar",
+      "doctorName": "Dr Rajesh",
+      "date": "2026-03-12",
+      "time": "12:59",
+      "status": "Scheduled",
+      "id": "N3PI6JvAXr4"
+    }
+  ],
+  "billings": [
+    {
+      "id": "1",
+      "patientName": "Chenna",
+      "amount": "3500",
+      "paymentMode": "UPI",
+      "status": "Unpaid"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

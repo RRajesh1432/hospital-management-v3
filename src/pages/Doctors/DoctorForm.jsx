@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
+
+import Layout from "../../components/Layout/Layout";
 
 import {
   createDoctor,
@@ -13,8 +16,12 @@ function DoctorForm() {
 
   const [doctor, setDoctor] = useState({
     name: "",
+    email: "",
+    phone: "",
     specialization: "",
+    qualification: "",
     experience: "",
+    status: "Active",
   });
 
   useEffect(() => {
@@ -25,6 +32,7 @@ function DoctorForm() {
 
   const loadDoctor = async () => {
     const response = await getDoctorById(id);
+
     setDoctor(response.data);
   };
 
@@ -48,37 +56,75 @@ function DoctorForm() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>{id ? "Edit Doctor" : "Add Doctor"}</h2>
+    <Layout>
+      <div className="card shadow">
+        <div className="card-body">
+          <h3>{id ? "Edit Doctor" : "Add Doctor"}</h3>
 
-      <form onSubmit={saveDoctor}>
-        <input
-          className="form-control mb-3"
-          name="name"
-          placeholder="Doctor Name"
-          value={doctor.name}
-          onChange={handleChange}
-        />
+          <form onSubmit={saveDoctor}>
+            <input
+              className="form-control mb-3"
+              name="name"
+              placeholder="Doctor Name"
+              value={doctor.name}
+              onChange={handleChange}
+            />
 
-        <input
-          className="form-control mb-3"
-          name="specialization"
-          placeholder="Specialization"
-          value={doctor.specialization}
-          onChange={handleChange}
-        />
+            <input
+              className="form-control mb-3"
+              name="email"
+              placeholder="Email"
+              value={doctor.email}
+              onChange={handleChange}
+            />
 
-        <input
-          className="form-control mb-3"
-          name="experience"
-          placeholder="Experience"
-          value={doctor.experience}
-          onChange={handleChange}
-        />
+            <input
+              className="form-control mb-3"
+              name="phone"
+              placeholder="Phone"
+              value={doctor.phone}
+              onChange={handleChange}
+            />
 
-        <button className="btn btn-success">Save Doctor</button>
-      </form>
-    </div>
+            <input
+              className="form-control mb-3"
+              name="specialization"
+              placeholder="Specialization"
+              value={doctor.specialization}
+              onChange={handleChange}
+            />
+
+            <input
+              className="form-control mb-3"
+              name="qualification"
+              placeholder="Qualification"
+              value={doctor.qualification}
+              onChange={handleChange}
+            />
+
+            <input
+              className="form-control mb-3"
+              name="experience"
+              placeholder="Experience"
+              value={doctor.experience}
+              onChange={handleChange}
+            />
+
+            <select
+              className="form-select mb-3"
+              name="status"
+              value={doctor.status}
+              onChange={handleChange}
+            >
+              <option>Active</option>
+              <option>Inactive</option>
+            </select>
+
+            <button className="btn btn-success">Save Doctor</button>
+          </form>
+        </div>
+      </div>
+    </Layout>
   );
 }
 

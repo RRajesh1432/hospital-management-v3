@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
+
+import Layout from "../../components/Layout/Layout";
 
 import {
   createPatient,
@@ -15,7 +18,10 @@ function PatientForm() {
     name: "",
     age: "",
     gender: "",
+    phone: "",
+    bloodGroup: "",
     disease: "",
+    doctorAssigned: "",
   });
 
   useEffect(() => {
@@ -26,6 +32,7 @@ function PatientForm() {
 
   const loadPatient = async () => {
     const response = await getPatientById(id);
+
     setPatient(response.data);
   };
 
@@ -49,45 +56,76 @@ function PatientForm() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>{id ? "Edit Patient" : "Add Patient"}</h2>
+    <Layout>
+      <div className="card shadow">
+        <div className="card-body">
+          <h3>{id ? "Edit Patient" : "Add Patient"}</h3>
 
-      <form onSubmit={savePatient}>
-        <input
-          className="form-control mb-3"
-          name="name"
-          placeholder="Patient Name"
-          value={patient.name}
-          onChange={handleChange}
-        />
+          <form onSubmit={savePatient}>
+            <input
+              className="form-control mb-3"
+              name="name"
+              placeholder="Patient Name"
+              value={patient.name}
+              onChange={handleChange}
+            />
 
-        <input
-          className="form-control mb-3"
-          name="age"
-          placeholder="Age"
-          value={patient.age}
-          onChange={handleChange}
-        />
+            <input
+              className="form-control mb-3"
+              name="age"
+              placeholder="Age"
+              value={patient.age}
+              onChange={handleChange}
+            />
 
-        <input
-          className="form-control mb-3"
-          name="gender"
-          placeholder="Gender"
-          value={patient.gender}
-          onChange={handleChange}
-        />
+            <select
+              className="form-select mb-3"
+              name="gender"
+              value={patient.gender}
+              onChange={handleChange}
+            >
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
 
-        <input
-          className="form-control mb-3"
-          name="disease"
-          placeholder="Disease"
-          value={patient.disease}
-          onChange={handleChange}
-        />
+            <input
+              className="form-control mb-3"
+              name="phone"
+              placeholder="Phone"
+              value={patient.phone}
+              onChange={handleChange}
+            />
 
-        <button className="btn btn-success">Save Patient</button>
-      </form>
-    </div>
+            <input
+              className="form-control mb-3"
+              name="bloodGroup"
+              placeholder="Blood Group"
+              value={patient.bloodGroup}
+              onChange={handleChange}
+            />
+
+            <input
+              className="form-control mb-3"
+              name="disease"
+              placeholder="Disease"
+              value={patient.disease}
+              onChange={handleChange}
+            />
+
+            <input
+              className="form-control mb-3"
+              name="doctorAssigned"
+              placeholder="Assigned Doctor"
+              value={patient.doctorAssigned}
+              onChange={handleChange}
+            />
+
+            <button className="btn btn-success">Save Patient</button>
+          </form>
+        </div>
+      </div>
+    </Layout>
   );
 }
 
